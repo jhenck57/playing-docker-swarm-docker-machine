@@ -1,9 +1,18 @@
 #!/bin/bash
 
-# Creating 6 nodes 
+# Creating 6 nodes
 echo "### Creating nodes ..."
 for c in {1..6} ; do
-    docker-machine create -d virtualbox node$c
+    docker-machine create -d virtualbox --virtualbox-disk-size "30000" --virtualbox-memory "1024" --virtualbox-host-dns-resolver "on" node$c
+	  #--engine-insecure-registry
+	  #--engine-storage-driver overlay \
+	  # --engine-opt dns=8.8.8.8 \
+      #--engine-registry-mirror \
+      #--engine-opt dns=8.8.8.8 \
+      #--engine-env HTTP_PROXY=http://example.com:8080 \
+      #--engine-env HTTPS_PROXY=https://example.com:8080 \
+      #--engine-opt log-driver=syslog \
+      json
 done
 
 # Get IP from leader node
