@@ -12,7 +12,7 @@ for c in {1..6} ; do
       #--engine-env HTTP_PROXY=http://example.com:8080 \
       #--engine-env HTTPS_PROXY=https://example.com:8080 \
       #--engine-opt log-driver=syslog \
-      json
+      # json
 done
 
 # Get IP from leader node
